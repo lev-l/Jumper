@@ -18,6 +18,15 @@ public class PhysicsObject : MonoBehaviour
     protected const float minMoveDistance = 0.001f;
     protected const float shellRadius = 0.01f;
 
+    public void AddForce(Vector2 force)
+    {
+        if (Velocity.y < 20)
+        {
+            Velocity.y += force.y;
+        }
+        _targetVelocity.x += force.x;
+    }
+
     private void Start()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
