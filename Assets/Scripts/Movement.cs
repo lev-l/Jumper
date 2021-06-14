@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Movement : PhysicsObject
 {
+    public float AdditiveXSpeed;
     public float MaxSpeed = 7;
     public float JumpTakeOffSpeed = 7;
 
@@ -25,6 +26,6 @@ public class Movement : PhysicsObject
             }
         }
 
-        _targetVelocity = move * MaxSpeed;
+        _targetVelocity = move * MaxSpeed + Vector2.right * AdditiveXSpeed;
     }
 }

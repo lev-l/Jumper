@@ -5,6 +5,7 @@ using UnityEngine;
 public class Rope : MonoBehaviour
 {
     public float Distance;
+    public Vector2 Force;
     private Rigidbody2D _rigidbody;
     private PhysicsObject _object;
     private Transform _self;
@@ -29,9 +30,9 @@ public class Rope : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             Vector3 mousePosition = _camera.ScreenToWorldPoint(Input.mousePosition);
-            Vector2 distanceToMouse = _self.position - mousePosition;
+            Vector2 distanceToMouse = mousePosition - _self.position;
 
-            int count = _rigidbody.Cast(distanceToMouse.normalized, _filter, _hitsBuffer, distanceToMouse.magnitude);
+            int count = _rigidbody.Cast(distanceToMouse.normalized, _hitsBuffer, Distance);
             _hitsList.Clear();
             for (int i = 0; i < count; i++)
             {
@@ -40,11 +41,11 @@ public class Rope : MonoBehaviour
 
             foreach(RaycastHit2D hit in _hitsList)
             {
-                if (hit.distance <= Distance)
+                if (hit.distance <= Distance
+                    && hit.collider.CompareTag("Light"))
                 {
-                    Vector2 distnaceToHit = (Vector2)_self.position - hit.centroid;
-                    print(distnaceToHit);
-                    _object.AddForce(distnaceToHit * 5);
+                    Vector2 distnaceToHit = hit.centroid - (Vector2)_self.position;
+                    _object.AddForce(Force * distnaceToHit.normalized);
                 }
             }
         }

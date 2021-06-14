@@ -20,9 +20,13 @@ public class PhysicsObject : MonoBehaviour
 
     public void AddForce(Vector2 force)
     {
-        if (Velocity.y < 20)
+        if (Velocity.y + force.y < 20)
         {
             Velocity.y += force.y;
+        }
+        else
+        {
+            Velocity.y = 20;
         }
         _targetVelocity.x += force.x;
     }
