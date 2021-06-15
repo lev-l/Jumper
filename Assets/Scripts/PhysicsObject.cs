@@ -21,8 +21,7 @@ public class PhysicsObject : MonoBehaviour
 
     public void AddForce(Vector2 force)
     {
-        print(Velocity.y);
-        Velocity.y += force.y;
+        Velocity.y = force.y;
 
         _additiveXSpeed = force.x;
         Invoke(nameof(SetXSpeed0), 0.2f);

@@ -8124,10 +8124,10 @@ Transform:
   - {fileID: 1459779869}
   - {fileID: 176374080}
   - {fileID: 190955348}
-  - {fileID: 1310360646}
   - {fileID: 2086543682}
   - {fileID: 2039928330}
   - {fileID: 1684169643}
+  - {fileID: 1310360646}
   - {fileID: 771506313}
   - {fileID: 979200609}
   - {fileID: 1490594330}
@@ -28773,7 +28773,6 @@ MonoBehaviour:
   Velocity: {x: 0, y: 0}
   MinGroundNormalY: 0.6
   GravityModifier: 1
-  AdditiveXSpeed: 0
   MaxSpeed: 5
   JumpTakeOffSpeed: 10
 --- !u!114 &2076761814
