@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Movement : PhysicsObject
 {
-    public float AdditiveXSpeed;
     public float MaxSpeed = 7;
     public float JumpTakeOffSpeed = 7;
 
@@ -14,18 +13,17 @@ public class Movement : PhysicsObject
 
         move.x = Input.GetAxis("Horizontal");
 
-        if(Input.GetButtonDown("Jump") && grounded)
+        if (Input.GetButtonDown("Jump") && grounded)
         {
             Velocity.y = JumpTakeOffSpeed;
         }
         else if (Input.GetButtonUp("Jump"))
         {
-            if(Velocity.y > 0)
+            if (Velocity.y > 0)
             {
                 Velocity.y *= 0.5f;
             }
         }
-
-        _targetVelocity = move * MaxSpeed + Vector2.right * AdditiveXSpeed;
+        _targetVelocity = move * MaxSpeed;
     }
 }

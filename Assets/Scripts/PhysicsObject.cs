@@ -8,6 +8,7 @@ public class PhysicsObject : MonoBehaviour
     public bool grounded { get; protected set; }
     [SerializeField] protected float MinGroundNormalY;
     [SerializeField] protected float GravityModifier;
+    protected float _additiveXSpeed;
     protected Vector2 _targetVelocity;
     protected Vector2 _groundNormal;
     protected Rigidbody2D _rigidbody;
@@ -20,15 +21,16 @@ public class PhysicsObject : MonoBehaviour
 
     public void AddForce(Vector2 force)
     {
-        if (Velocity.y + force.y < 20)
-        {
-            Velocity.y += force.y;
-        }
-        else
-        {
-            Velocity.y = 20;
-        }
-        _targetVelocity.x += force.x;
+        print(Velocity.y);
+        Velocity.y += force.y;
+
+        _additiveXSpeed = force.x;
+        Invoke(nameof(SetXSpeed0), 0.2f);
+    }
+
+    public void SetXSpeed0()
+    {
+        _additiveXSpeed = 0;
     }
 
     private void Start()
@@ -54,7 +56,7 @@ public class PhysicsObject : MonoBehaviour
     private void FixedUpdate()
     {
         Velocity += GravityModifier * Physics2D.gravity * Time.deltaTime;
-        Velocity.x = _targetVelocity.x;
+        Velocity.x = _targetVelocity.x + _additiveXSpeed;
 
         grounded = false;
 

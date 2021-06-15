@@ -7,7 +7,7 @@ public class Rope : MonoBehaviour
     public float Distance;
     public Vector2 Force;
     private Rigidbody2D _rigidbody;
-    private PhysicsObject _object;
+    private Movement _object;
     private Transform _self;
     private Camera _camera;
     private ContactFilter2D _filter;
@@ -42,10 +42,11 @@ public class Rope : MonoBehaviour
             foreach(RaycastHit2D hit in _hitsList)
             {
                 if (hit.distance <= Distance
+                    && hit.distance > 0.1f
                     && hit.collider.CompareTag("Light"))
                 {
-                    Vector2 distnaceToHit = hit.centroid - (Vector2)_self.position;
-                    _object.AddForce(Force * distnaceToHit.normalized);
+                    Vector2 distanceToHit = hit.centroid - (Vector2)_self.position;
+                    _object.AddForce(Force * distanceToHit.normalized);
                 }
             }
         }
