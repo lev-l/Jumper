@@ -43,10 +43,6 @@ public class Rope : MonoBehaviour
             {
                 RaycastHit2D hit = _hitsList[i];
 
-                print(_hitsList.Count);
-                print(hit.distance + " ? " + Distance);
-                print(hit.collider.name);
-
                 if (hit.distance <= Distance
                     && hit.collider.CompareTag("Light"))
                 {
