@@ -47,6 +47,8 @@ public class Rope : MonoBehaviour
                     && hit.collider.CompareTag("Light"))
                 {
                     Vector2 distanceToHit = hit.centroid - (Vector2)_self.position;
+                    hit.collider.GetComponent<Animator>().Play("RopeAttached");
+
                     _object.AddForce(Force * distanceToHit.normalized);
                     break;
                 }
