@@ -2,16 +2,35 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace Assets.Scripts
+public class DeadMenu
 {
-    public class Death : MonoBehaviour
+    public static GameObject Menu;
+}
+
+public class Death : MonoBehaviour
+{
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        private void OnTriggerEnter2D(Collider2D collision)
+        Movement movement = collision.GetComponent<Movement>();
+        if (movement)
         {
-            if (collision.GetComponent<Movement>())
+            movement.enabled = false;
+            DeadMenu.Menu.SetActive(true);
+            movement.GetComponent<Animator>().Play("Death");
+            StartCoroutine(Restarting());
+        }
+    }
+
+    public IEnumerator Restarting()
+    {
+        while (true)
+        {
+            if (Input.GetKeyDown(KeyCode.R))
             {
+                DeadMenu.Menu.SetActive(false);
                 SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             }
+            yield return null;
         }
     }
 }
