@@ -111,9 +111,9 @@ TextureImporter:
       name: Rope_0
       rect:
         serializedVersion: 2
-        x: 25
+        x: 38
         y: 24
-        width: 109
+        width: 96
         height: 19
       alignment: 4
       pivot: {x: 0, y: 0.5}
