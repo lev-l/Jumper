@@ -8,7 +8,7 @@ public class Rope : MonoBehaviour
     public Vector2 Force;
     private Rigidbody2D _rigidbody;
     private RopeAnimation _animator;
-    private Movement _object;
+    private UnityMovement _movement;
     private Transform _self;
     private Camera _camera;
     private RaycastHit2D[] _hitsBuffer = new RaycastHit2D[5];
@@ -18,7 +18,7 @@ public class Rope : MonoBehaviour
     {
         _rigidbody = GetComponent<Rigidbody2D>();
         _animator = GetComponentInChildren<RopeAnimation>();
-        _object = GetComponent<Movement>();
+        _movement = GetComponent<UnityMovement>();
         _self = GetComponent<Transform>();
         _camera = Camera.main;
     }
@@ -48,7 +48,7 @@ public class Rope : MonoBehaviour
                     Vector2 distanceToHit = hit.centroid - (Vector2)_self.position;
                     hit.collider.GetComponent<Animator>().Play("RopeAttached");
 
-                    _object.AddForce(Force * distanceToHit.normalized);
+                    _movement.AddForce(Force * distanceToHit.normalized);
                     break;
                 }
             }

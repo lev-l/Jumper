@@ -11,7 +11,7 @@ public class Death : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Movement movement = collision.GetComponent<Movement>();
+        UnityMovement movement = collision.GetComponent<UnityMovement>();
         if (movement)
         {
             movement.enabled = false;
