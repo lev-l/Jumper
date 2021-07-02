@@ -21,8 +21,7 @@ public class PlayerAnimations : MonoBehaviour
         {
             _animator.SetBool("IsJump", true);
         }
-        if(_object.velocity.y < 0
-            && !_movement.grounded)
+        else if(!_movement.grounded)
         {
             _animator.SetBool("Landing", true);
         }

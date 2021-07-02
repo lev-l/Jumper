@@ -15,6 +15,7 @@ public class Death : MonoBehaviour
         if (movement)
         {
             movement.enabled = false;
+            movement.GetComponent<Rope>().enabled = false;
             DeadMenu.Menu.SetActive(true);
             movement.GetComponent<Animator>().Play("Death");
             StartCoroutine(Restarting());

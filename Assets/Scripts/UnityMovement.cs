@@ -8,12 +8,18 @@ public class UnityMovement : MonoBehaviour
     public bool grounded { get; private set; }
     private Rigidbody2D _rigidbody;
     private float _xSpeed;
-    private Collider2D _ground;
+    private ContactFilter2D _filter;
 
     void Start()
     {
         grounded = false;
         _rigidbody = GetComponent<Rigidbody2D>();
+
+        _filter.useTriggers = false;
+        _filter.SetLayerMask(Physics2D.GetLayerCollisionMask(gameObject.layer));
+        _filter.useLayerMask = true;
+
+        StartCoroutine(GetGround());
     }
 
     void Update()
@@ -30,21 +36,16 @@ public class UnityMovement : MonoBehaviour
         _rigidbody.velocity = newVelocity;
     }
 
-    public void OnTriggerEnter2D(Collider2D collision)
+    public IEnumerator GetGround()
     {
-        if (!collision.isTrigger)
+        RaycastHit2D[] buffer = new RaycastHit2D[10];
+        while (true)
         {
-            grounded = true;
-            _ground = collision;
-        }
-    }
+            int grounds = _rigidbody.Cast(Vector2.down, _filter, buffer, 0.55f);
 
-    public void OnTriggerExit2D(Collider2D collision)
-    {
-        if (!collision.isTrigger
-            && collision == _ground)
-        {
-            grounded = false;
+            grounded = grounds > 0;
+
+            yield return new WaitForSeconds(0.1f);
         }
     }
 
