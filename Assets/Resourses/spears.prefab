@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2810450462727284784}
   - component: {fileID: 2810450462727284790}
   - component: {fileID: 5414065808721470004}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: spears
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -122,4 +122,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f725827ecb26bd84dad2e7567ff61308, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Scul: {fileID: 8004261045990629809, guid: 26f453b219db72a4c83f7938efa840d3, type: 3}
