@@ -43,6 +43,7 @@ public class Throw : MonoBehaviour
             if (Input.GetKeyUp(Key))
             {
                 _arrow.SetActive(false);
+                _rigidbody.constraints = RigidbodyConstraints2D.None;
                 _rigidbody.AddForce((_arrowTip.position - _self.position) * 5, ForceMode2D.Impulse);
             }
         }
