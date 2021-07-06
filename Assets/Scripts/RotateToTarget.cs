@@ -15,6 +15,6 @@ public class RotateToTarget : MonoBehaviour
     {
         Vector3 dir = target - _self.position;
         float angle = (Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg);
-        _self.localRotation = Quaternion.Euler(new Vector3(0, 0, angle));
+        _self.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
     }
 }
