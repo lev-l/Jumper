@@ -4,15 +4,30 @@ using UnityEngine;
 
 public class Sticking : MonoBehaviour
 {
-    private Rigidbody2D _rigidbody;
+    protected Rigidbody2D _rigidbody;
 
-    private void Start()
+    protected void Start()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
+    }
+
+    public void Stick()
+    {
+        _rigidbody.constraints = RigidbodyConstraints2D.FreezeAll;
+    }
+
+    public void UnStick()
+    {
+        _rigidbody.constraints = RigidbodyConstraints2D.None;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         _rigidbody.constraints = RigidbodyConstraints2D.FreezeAll;
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        _rigidbody.constraints = RigidbodyConstraints2D.None;
     }
 }

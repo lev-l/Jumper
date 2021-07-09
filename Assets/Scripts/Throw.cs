@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class Throw : MonoBehaviour
+public class Throw : PlayerObserver
 {
     public KeyCode Key;
     public float Max;
@@ -9,10 +9,10 @@ public class Throw : MonoBehaviour
     private Transform _arrowTip;
     private Transform _self;
     private Rigidbody2D _rigidbody;
+    private Sticking _stick;
     private RotateToTarget _arrowRotater;
     private TileToTarget _arrowTiler;
     private Camera _camera;
-    private bool _playerInArea = false;
 
     void Start()
     {
@@ -22,6 +22,7 @@ public class Throw : MonoBehaviour
         _self = GetComponent<Transform>();
         _arrowRotater = _arrow.GetComponent<RotateToTarget>();
         _arrowTiler = _arrow.GetComponent<TileToTarget>();
+        _stick = GetComponent<Sticking>();
         _arrow.SetActive(false);
         _camera = Camera.main;
     }
@@ -43,13 +44,13 @@ public class Throw : MonoBehaviour
             if (Input.GetKeyUp(Key))
             {
                 _arrow.SetActive(false);
-                _rigidbody.constraints = RigidbodyConstraints2D.None;
+                _stick.UnStick();
                 _rigidbody.AddForce((_arrowTip.position - _self.position) * 5, ForceMode2D.Impulse);
             }
         }
     }
 
-    public void PlayerCame(bool ins)
+    public override void PlayerCame(bool ins)
     {
         // ins meens do player came in area or from it
         _playerInArea = ins;

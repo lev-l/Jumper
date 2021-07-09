@@ -4,20 +4,23 @@ using UnityEngine;
 
 public class Messanger : MonoBehaviour
 {
-    private Throw _throw;
-
-    private void Start()
-    {
-        _throw = GetComponentInParent<Throw>();
-    }
+    public PlayerObserver[] Observers;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        _throw.PlayerCame(true);
+        Message(true);
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        _throw.PlayerCame(false);
+        Message(false);
+    }
+
+    private void Message(bool info)
+    {
+        foreach (PlayerObserver observer in Observers)
+        {
+            observer.PlayerCame(info);
+        }
     }
 }
