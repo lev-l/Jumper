@@ -20,10 +20,15 @@ public class TileToTarget : MonoBehaviour
     {
         Vector2 vectorDistance = _self.position - target;
         float distance = Mathf.Abs(vectorDistance.magnitude);
-        if(distance < max)
+        if(distance <= max)
         {
             _renderer.size = new Vector2(distance, _renderer.size.y);
             _end.localPosition = new Vector2(distance + EndTile, 0);
+        }
+        else
+        {
+            _renderer.size = new Vector2(3, _renderer.size.y);
+            _end.localPosition = new Vector2(3 + EndTile, 0);
         }
     }
 

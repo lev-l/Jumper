@@ -22,6 +22,7 @@ public class Ghost : PlayerObserver
     private UnityMovement _player;
     private Rigidbody2D _playerRigidbody;
     private Sticking _stick;
+    private ContactFilter2D _filter;
     private Function _turn;
 
     private void Start()
@@ -32,6 +33,9 @@ public class Ghost : PlayerObserver
         _playerRigidbody = _player.GetComponent<Rigidbody2D>();
         _stick = GetComponent<Sticking>();
         _turn = InGhost;
+
+        _filter.useTriggers = false;
+        _filter.SetLayerMask(Physics2D.GetLayerCollisionMask(9));
     }
 
     private void Update()
@@ -61,15 +65,21 @@ public class Ghost : PlayerObserver
 
     public void OutGhost()
     {
-        _mask.SetActive(false);
-        _player.enabled = true;
-        _player.GetComponent<GhostMovement>().enabled = false;
+        RaycastHit2D[] buffer = new RaycastHit2D[1];
+        int count = _playerRigidbody.Cast(Vector2.zero, _filter, buffer);
 
-        _stick.UnStick();
-        _playerRigidbody.gravityScale = 1;
-        _player.gameObject.layer = 9;
-        _self.position = _player.transform.position;
+        if (count == 0)
+        {
+            _mask.SetActive(false);
+            _player.enabled = true;
+            _player.GetComponent<GhostMovement>().enabled = false;
 
-        _turn = InGhost;
+            _stick.UnStick();
+            _playerRigidbody.gravityScale = 1;
+            _player.gameObject.layer = 9;
+            _self.position = _player.transform.position;
+
+            _turn = InGhost;
+        }
     }
 }

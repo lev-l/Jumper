@@ -25,9 +25,4 @@ public class Sticking : MonoBehaviour
     {
         _rigidbody.constraints = RigidbodyConstraints2D.FreezeAll;
     }
-
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        _rigidbody.constraints = RigidbodyConstraints2D.None;
-    }
 }
