@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2292865575389843860}
   - component: {fileID: 6418026069301911671}
+  - component: {fileID: 3110639759438975601}
+  - component: {fileID: 2070107012216141562}
   m_Layer: 0
   m_Name: Darkness
   m_TagString: Untagged
@@ -69,7 +71,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 5
+  m_SortingOrder: 19
   m_Sprite: {fileID: 21300000, guid: feb811071587bf744b909f40f94ce78a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -81,3 +83,44 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &3110639759438975601
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 552976779836335990}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.44170347, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.11659306, y: 1}
+  m_EdgeRadius: 0
+--- !u!114 &2070107012216141562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 552976779836335990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83cf1458de314584882ca6fec5b0c7eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LoadLevel: 
+  LoadPosition: {x: 0, y: 0}
+  PositionContainer: {fileID: 11400000, guid: 8f9d9521d17dece4c8184d02ef522730, type: 2}
