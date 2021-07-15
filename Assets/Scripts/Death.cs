@@ -9,6 +9,7 @@ public class DeadMenu
 
 public class Death : MonoBehaviour
 {
+    public Ables PlayerAbles;
     private Collider2D _collider;
     private ContactFilter2D _filter;
 
@@ -33,7 +34,10 @@ public class Death : MonoBehaviour
     private IEnumerator Dead(UnityMovement movement)
     {
         Collider2D[] colliders = new Collider2D[4];
-        yield return new WaitForSecondsRealtime(0.1f);
+        if (PlayerAbles.SpearJump)
+        {
+            yield return new WaitForSecondsRealtime(0.1f);
+        }
 
         if (_collider.OverlapCollider(_filter, colliders) > 0)
         {

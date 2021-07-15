@@ -9,7 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 715061764d3bbee4dbdb762ed96fe572, type: 3}
-  m_Name: LoadingPosition
+  m_Script: {fileID: 11500000, guid: f598aeaa5f5d5d843977b58c9eabbd2d, type: 3}
+  m_Name: PlayerAbles
   m_EditorClassIdentifier: 
-  LoadPosition: {x: -40.85, y: -30.52}
+  Fly: 1
+  SpearJump: 0
+  Teleportation: 0
+  PhysicsTeleportation: 0

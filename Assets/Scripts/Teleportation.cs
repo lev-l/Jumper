@@ -4,8 +4,14 @@ using UnityEngine;
 public class Teleportation : MonoBehaviour
 {
     public Teleportation OtherTeleport;
+    public Ables PlayerAbles;
     private bool _blocked;
     private GameObject _subject;
+
+    private void Start()
+    {
+        _blocked = PlayerAbles.Teleportation;
+    }
 
     private void Update()
     {

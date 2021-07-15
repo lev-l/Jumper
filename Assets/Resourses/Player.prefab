@@ -127,6 +127,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SaveFileName: SaveData
   StartPosition: {fileID: 11400000, guid: 8f9d9521d17dece4c8184d02ef522730, type: 2}
+  PlayerAbles: {fileID: 11400000, guid: 3ee36f26c0a085643a57bfe4f85c8714, type: 2}
 --- !u!1 &573780150558654507
 GameObject:
   m_ObjectHideFlags: 0
@@ -225,6 +226,7 @@ GameObject:
   - component: {fileID: 573780150948058686}
   - component: {fileID: 573780150948057537}
   - component: {fileID: 573780150948057536}
+  - component: {fileID: 1825531323847564761}
   - component: {fileID: 573780150948057539}
   - component: {fileID: 573780150948057538}
   - component: {fileID: 573780150948057541}
@@ -386,6 +388,21 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &1825531323847564761
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 573780150948057542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83c778b832bb7274aa12d4fb6d829238, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SelfAbles: {fileID: 11400000, guid: 3ee36f26c0a085643a57bfe4f85c8714, type: 2}
+  PhysicTeleporter: {fileID: 8596140060433807375, guid: 066b735533a958a4a9710461b7d3523f,
+    type: 3}
 --- !u!114 &573780150948057539
 MonoBehaviour:
   m_ObjectHideFlags: 0

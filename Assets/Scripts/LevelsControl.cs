@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using System.Runtime.Serialization;
+using UnityEngine;
 
 [DataContract]
 public class LevelsControl
@@ -14,6 +15,7 @@ public class LevelsControl
     {
         OpenedLevels = new List<string>(5);
         CurrentLevel = SceneManager.GetActiveScene().name;
+        OpenLevel(CurrentLevel);
     }
 
     public bool OpenLevel(string level)
