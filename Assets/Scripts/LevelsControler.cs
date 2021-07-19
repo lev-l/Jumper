@@ -10,16 +10,15 @@ public class LevelsControler : MonoBehaviour
     public LoadingPosition StartPosition;
     public Ables PlayerAbles;
     private LevelsControl _levels;
-    private string _path;
 
     private void Awake()
     {
-        _path = "./Assets/Resourses/" + SaveFileName + ".json";
+        string saveFile = File.ReadAllText(SaveFileName + ".json");
 
         // load
         _levels = (LevelsControl)JsonUtility.FromJson
                                                 (
-                                                File.ReadAllText(_path),
+                                                saveFile,
                                                 typeof(LevelsControl)
                                                 );
 
@@ -35,7 +34,7 @@ public class LevelsControler : MonoBehaviour
         PlayerAbles.SpearJump = LevelsContains("FifthLevel");
 
         // write
-        File.WriteAllText(_path, JsonUtility.ToJson(_levels));
+        File.WriteAllText(SaveFileName + ".json", JsonUtility.ToJson(_levels));
 
         // load position
         GameObject.FindGameObjectWithTag("Player").transform.position = StartPosition.LoadPosition;
