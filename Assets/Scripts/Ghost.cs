@@ -24,6 +24,7 @@ public class Ghost : PlayerObserver
     private Sticking _stick;
     private ContactFilter2D _filter;
     private Function _turn;
+    private bool _able;
 
     private void Start()
     {
@@ -36,14 +37,24 @@ public class Ghost : PlayerObserver
 
         _filter.useTriggers = false;
         _filter.SetLayerMask(Physics2D.GetLayerCollisionMask(9));
+
+        _able = true;
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (_able
+            && Input.GetKeyDown(KeyCode.Q))
         {
             _turn();
+            _able = false;
+            Invoke(nameof(Able), 1);
         }
+    }
+
+    public void Able()
+    {
+        _able = true;
     }
 
     public void InGhost()

@@ -6,7 +6,7 @@ public class RotateToTarget : MonoBehaviour
 {
     private Transform _self;
 
-    private void Start()
+    private void Awake()
     {
         _self = GetComponent<Transform>();
     }
