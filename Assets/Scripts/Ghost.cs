@@ -48,7 +48,7 @@ public class Ghost : PlayerObserver
         {
             _turn();
             _able = false;
-            Invoke(nameof(Able), 1);
+            Invoke(nameof(Able), 0.5f);
         }
     }
 

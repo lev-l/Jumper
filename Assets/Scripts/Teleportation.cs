@@ -10,7 +10,7 @@ public class Teleportation : MonoBehaviour
 
     private void Start()
     {
-        _blocked = PlayerAbles.Teleportation;
+        _blocked = !PlayerAbles.Teleportation;
     }
 
     private void Update()
