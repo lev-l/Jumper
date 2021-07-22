@@ -42,6 +42,7 @@ public class Death : MonoBehaviour
         if (_collider.OverlapCollider(_filter, colliders) > 0)
         {
             movement.enabled = false;
+            movement.GetComponent<Flying>().enabled = false;
             movement.GetComponent<Rope>().enabled = false;
             DeadMenu.Menu.SetActive(true);
             movement.GetComponent<Animator>().Play("Death");

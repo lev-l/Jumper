@@ -9,7 +9,7 @@ public class TileToTarget : MonoBehaviour
     private Transform _end;
     private Transform _self;
 
-    private void Start()
+    private void Awake()
     {
         _renderer = GetComponent<SpriteRenderer>();
         _self = GetComponent<Transform>();

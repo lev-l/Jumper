@@ -12,7 +12,7 @@ public class PlayerUpgrade : MonoBehaviour
         GetComponent<Flying>().enabled = SelfAbles.Fly;
         if (SelfAbles.PhysicsTeleportation)
         {
-            Instantiate(PhysicTeleporter, transform.position, Quaternion.identity);
+            Instantiate(PhysicTeleporter, transform.position + new Vector3(1.5f, 0), Quaternion.identity);
         }
     }
 }
