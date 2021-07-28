@@ -20,6 +20,7 @@ public class Teleportation : MonoBehaviour
             && !_blocked)
         {
             _subject.transform.position = OtherTeleport.transform.position;
+            _subject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
             OtherTeleport.Block();
             _subject = null;
         }

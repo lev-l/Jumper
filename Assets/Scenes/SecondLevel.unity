@@ -39024,17 +39024,17 @@ PrefabInstance:
     - target: {fileID: 2070107012216141562, guid: 4052bfe1fa6784649afb405db5207bd3,
         type: 3}
       propertyPath: LoadLevel
-      value: 
+      value: FourthLevel
       objectReference: {fileID: 0}
     - target: {fileID: 2070107012216141562, guid: 4052bfe1fa6784649afb405db5207bd3,
         type: 3}
       propertyPath: LoadPosition.x
-      value: 0
+      value: 0.0000033379
       objectReference: {fileID: 0}
     - target: {fileID: 2070107012216141562, guid: 4052bfe1fa6784649afb405db5207bd3,
         type: 3}
       propertyPath: LoadPosition.y
-      value: 0
+      value: 0.375
       objectReference: {fileID: 0}
     - target: {fileID: 2292865575389843860, guid: 4052bfe1fa6784649afb405db5207bd3,
         type: 3}
