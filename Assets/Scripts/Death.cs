@@ -39,7 +39,17 @@ public class Death : MonoBehaviour
             yield return new WaitForSecondsRealtime(0.1f);
         }
 
-        if (_collider.OverlapCollider(_filter, colliders) > 0)
+        int count = _collider.OverlapCollider(_filter, colliders);
+        bool isPlayerIn = false;
+        for(int i = 0; i < count; i++)
+        {
+            if (colliders[i].CompareTag("Player"))
+            {
+                isPlayerIn = true;
+            }
+        }
+
+        if (isPlayerIn)
         {
             movement.enabled = false;
             movement.GetComponent<Flying>().enabled = false;

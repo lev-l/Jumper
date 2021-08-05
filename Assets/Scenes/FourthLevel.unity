@@ -4468,7 +4468,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -2
   m_Sprite: {fileID: -3179065492051820323, guid: 6d28f55f1b0572546b2632db94416d69,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -8037,7 +8037,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -5
   m_Sprite: {fileID: -3179065492051820323, guid: 6d28f55f1b0572546b2632db94416d69,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -21342,7 +21342,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -5
   m_Sprite: {fileID: 6367844002441579164, guid: 6d28f55f1b0572546b2632db94416d69,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -22442,7 +22442,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -5
   m_Sprite: {fileID: -3179065492051820323, guid: 6d28f55f1b0572546b2632db94416d69,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -29950,7 +29950,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -5
   m_Sprite: {fileID: -3179065492051820323, guid: 6d28f55f1b0572546b2632db94416d69,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -30032,7 +30032,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -5
   m_Sprite: {fileID: -3179065492051820323, guid: 6d28f55f1b0572546b2632db94416d69,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -32693,7 +32693,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -5
   m_Sprite: {fileID: -3179065492051820323, guid: 6d28f55f1b0572546b2632db94416d69,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -38186,17 +38186,17 @@ PrefabInstance:
     - target: {fileID: 2070107012216141562, guid: 4052bfe1fa6784649afb405db5207bd3,
         type: 3}
       propertyPath: LoadLevel
-      value: SecondLevel
+      value: FifthLevel
       objectReference: {fileID: 0}
     - target: {fileID: 2070107012216141562, guid: 4052bfe1fa6784649afb405db5207bd3,
         type: 3}
       propertyPath: LoadPosition.x
-      value: -105.5
+      value: -7
       objectReference: {fileID: 0}
     - target: {fileID: 2070107012216141562, guid: 4052bfe1fa6784649afb405db5207bd3,
         type: 3}
       propertyPath: LoadPosition.y
-      value: 14.059
+      value: 19.465
       objectReference: {fileID: 0}
     - target: {fileID: 2292865575389843860, guid: 4052bfe1fa6784649afb405db5207bd3,
         type: 3}
