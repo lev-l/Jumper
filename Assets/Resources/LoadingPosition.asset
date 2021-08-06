@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 715061764d3bbee4dbdb762ed96fe572, type: 3}
   m_Name: LoadingPosition
   m_EditorClassIdentifier: 
-  LoadPosition: {x: -70.11, y: 23}
+  LoadPosition: {x: -105, y: 37}
