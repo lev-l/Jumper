@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.IO;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
@@ -11,7 +12,8 @@ public class LevelsLoader : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        PositionContainer.LoadPosition = LoadPosition;
+        File.WriteAllText(PositionContainer.FileName + ".json",
+                                JsonUtility.ToJson(LoadPosition));
         SceneManager.LoadScene(LoadLevel);
     }
 }

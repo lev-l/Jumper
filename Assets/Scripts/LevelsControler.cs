@@ -37,7 +37,9 @@ public class LevelsControler : MonoBehaviour
         File.WriteAllText(SaveFileName + ".json", JsonUtility.ToJson(_levels));
 
         // load position
-        GameObject.FindGameObjectWithTag("Player").transform.position = StartPosition.LoadPosition;
+        GameObject.FindGameObjectWithTag("Player").transform.position
+            = (Vector3)JsonUtility.FromJson(File.ReadAllText(StartPosition.FileName + ".json"),
+                                                                                typeof(Vector3));
     }
 
     private bool LevelsContains(string level)

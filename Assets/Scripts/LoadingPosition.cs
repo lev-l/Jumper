@@ -1,9 +1,9 @@
 ﻿using System.Collections;
+using System.IO;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu()]
-public class LoadingPosition : ScriptableObject
+public class LoadingPosition : MonoBehaviour
 {
-    public Vector2 LoadPosition;
+    public string FileName;
 }

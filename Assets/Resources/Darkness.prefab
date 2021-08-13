@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6418026069301911671}
   - component: {fileID: 3110639759438975601}
   - component: {fileID: 2070107012216141562}
+  - component: {fileID: 6179376890285013068}
   m_Layer: 0
   m_Name: Darkness
   m_TagString: Untagged
@@ -123,4 +124,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LoadLevel: 
   LoadPosition: {x: 0, y: 0}
-  PositionContainer: {fileID: 11400000, guid: 8f9d9521d17dece4c8184d02ef522730, type: 2}
+  PositionContainer: {fileID: 6179376890285013068}
+--- !u!114 &6179376890285013068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 552976779836335990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 715061764d3bbee4dbdb762ed96fe572, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FileName: PlayerPosition
