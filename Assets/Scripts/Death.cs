@@ -55,6 +55,7 @@ public class Death : MonoBehaviour
             movement.GetComponent<Flying>().enabled = false;
             movement.GetComponent<Rope>().enabled = false;
             DeadMenu.Menu.SetActive(true);
+            movement.GetComponent<Audio>().PlayDeath();
             movement.GetComponent<Animator>().Play("Death");
             StartCoroutine(Restarting());
         }

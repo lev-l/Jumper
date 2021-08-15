@@ -20,6 +20,7 @@ public class Teleportation : MonoBehaviour
             && !_blocked)
         {
             _subject.transform.position = OtherTeleport.transform.position;
+            _subject.GetComponent<Audio>().PlayTeleportation();
             _subject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
             OtherTeleport.Block();
             _subject = null;
@@ -41,11 +42,17 @@ public class Teleportation : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        _subject = collision.gameObject;
+        if (collision.GetComponent<Audio>())
+        {
+            _subject = collision.gameObject;
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        _subject = null;
+        if (collision.GetComponent<Audio>())
+        {
+            _subject = null;
+        }
     }
 }

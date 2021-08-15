@@ -69,7 +69,8 @@ public class Ghost : PlayerObserver
             _playerRigidbody.gravityScale = 0;
             _playerRigidbody.velocity = Vector2.zero;
             _player.gameObject.layer = 12;
-
+            _player.AudioSystem.PlayGhost();
+            
             _turn = OutGhost;
         }
     }
@@ -89,6 +90,7 @@ public class Ghost : PlayerObserver
             _playerRigidbody.gravityScale = 1;
             _player.gameObject.layer = 9;
             _self.position = _player.transform.position;
+            _player.AudioSystem.PlayGhost();
 
             _turn = InGhost;
         }

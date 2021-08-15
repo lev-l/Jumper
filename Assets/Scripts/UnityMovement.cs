@@ -3,10 +3,12 @@ using UnityEngine;
 
 public class UnityMovement : MonoBehaviour
 {
+    public Audio AudioSystem;
     public float Speed;
     public float JumpForce;
     public bool grounded { get; private set; }
     private Rigidbody2D _rigidbody;
+    private GhostMovement _ghost;
     private float _xSpeed;
     private ContactFilter2D _filter;
 
@@ -14,6 +16,8 @@ public class UnityMovement : MonoBehaviour
     {
         grounded = false;
         _rigidbody = GetComponent<Rigidbody2D>();
+        _ghost = GetComponent<GhostMovement>();
+        AudioSystem = GetComponent<Audio>();
 
         _filter.useTriggers = false;
         _filter.SetLayerMask(Physics2D.GetLayerCollisionMask(gameObject.layer));
@@ -43,7 +47,13 @@ public class UnityMovement : MonoBehaviour
         {
             int grounds = _rigidbody.Cast(Vector2.down, _filter, buffer, 0.55f);
 
+            bool before = grounded;
             grounded = grounds > 0;
+            if (!before  && grounded
+                && !_ghost.enabled)
+            {
+                AudioSystem.PlayJump();
+            }
 
             yield return new WaitForSeconds(0.1f);
         }

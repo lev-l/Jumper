@@ -27,6 +27,7 @@ public class Rope : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
+            _movement.AudioSystem.PlayRope();
             Vector3 mousePosition = _camera.ScreenToWorldPoint(Input.mousePosition);
             Vector2 distanceToMouse = mousePosition - _self.position;
             StartCoroutine(_animator.RopeAttaching(mousePosition));
