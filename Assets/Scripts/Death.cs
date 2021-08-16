@@ -57,6 +57,13 @@ public class Death : MonoBehaviour
             DeadMenu.Menu.SetActive(true);
             movement.GetComponent<Audio>().PlayDeath();
             movement.GetComponent<Animator>().Play("Death");
+
+            Teleportation[] teleports = FindObjectsOfType<Teleportation>();
+            foreach(Teleportation teleport in teleports)
+            {
+                teleport.Kill();
+            }
+
             StartCoroutine(Restarting());
         }
     }

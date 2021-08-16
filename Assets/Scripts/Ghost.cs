@@ -20,6 +20,7 @@ public class Ghost : PlayerObserver
     private GameObject _mask;
     private Transform _self;
     private UnityMovement _player;
+    private Rope _rope;
     private Rigidbody2D _playerRigidbody;
     private Sticking _stick;
     private ContactFilter2D _filter;
@@ -31,6 +32,7 @@ public class Ghost : PlayerObserver
         _mask = Camera.main.transform.GetChild(0).gameObject;
         _self = GetComponent<Transform>();
         _player = GameObject.FindGameObjectWithTag("Player").GetComponent<UnityMovement>();
+        _rope = _player.GetComponent<Rope>();
         _playerRigidbody = _player.GetComponent<Rigidbody2D>();
         _stick = GetComponent<Sticking>();
         _turn = InGhost;
@@ -44,7 +46,8 @@ public class Ghost : PlayerObserver
     private void Update()
     {
         if (_able
-            && Input.GetKeyDown(KeyCode.Q))
+            && Input.GetKeyDown(KeyCode.Q)
+            && _rope.enabled)
         {
             _turn();
             _able = false;
