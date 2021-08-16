@@ -13,6 +13,7 @@ public class Rope : MonoBehaviour
     private Camera _camera;
     private RaycastHit2D[] _hitsBuffer = new RaycastHit2D[5];
     private List<RaycastHit2D> _hitsList = new List<RaycastHit2D>(5);
+    private ContactFilter2D _filter;
 
     void Start()
     {
@@ -20,6 +21,10 @@ public class Rope : MonoBehaviour
         _animator = GetComponentInChildren<RopeAnimation>();
         _movement = GetComponent<UnityMovement>();
         _self = GetComponent<Transform>();
+
+        _filter = new ContactFilter2D();
+        _filter.useTriggers = true;
+
         _camera = Camera.main;
     }
 
@@ -32,7 +37,8 @@ public class Rope : MonoBehaviour
             Vector2 distanceToMouse = mousePosition - _self.position;
             StartCoroutine(_animator.RopeAttaching(mousePosition));
 
-            int count = _rigidbody.Cast(distanceToMouse.normalized, _hitsBuffer, Distance);
+            int count = Physics2D.Raycast(_self.position, distanceToMouse.normalized,
+                                                    _filter, _hitsBuffer, Distance);
             _hitsList.Clear();
             for (int i = 0; i < count; i++)
             {
