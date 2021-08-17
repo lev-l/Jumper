@@ -37,8 +37,11 @@ public class Rope : MonoBehaviour
             Vector2 distanceToMouse = mousePosition - _self.position;
             StartCoroutine(_animator.RopeAttaching(mousePosition));
 
-            int count = Physics2D.Raycast(_self.position, distanceToMouse.normalized,
-                                                    _filter, _hitsBuffer, Distance);
+            //int count = Physics2D.Raycast(_self.position, distanceToMouse.normalized,
+            //                                        _filter, _hitsBuffer, Distance);
+
+            int count = _rigidbody.Cast(distanceToMouse.normalized, _hitsBuffer, Distance);
+
             _hitsList.Clear();
             for (int i = 0; i < count; i++)
             {

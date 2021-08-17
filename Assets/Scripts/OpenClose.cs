@@ -10,7 +10,7 @@ public class OpenClose : MonoBehaviour
     protected Vector3 _defoultPosition;
     protected bool _opened;
 
-    private void Start()
+    protected virtual void Start()
     {
         _defoultPosition = MovableObject.position;
         _opened = false;

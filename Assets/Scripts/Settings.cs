@@ -80,7 +80,7 @@ public class Settings : MonoBehaviour
                         JsonUtility.ToJson(new Vector2(-105, -20)));
     }
 
-    private float ValueToVolume(float value)
+    public static float ValueToVolume(float value)
     {
         return (value * 40) - 35;
     }

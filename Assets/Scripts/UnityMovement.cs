@@ -45,7 +45,7 @@ public class UnityMovement : MonoBehaviour
         RaycastHit2D[] buffer = new RaycastHit2D[10];
         while (true)
         {
-            int grounds = Physics2D.Raycast(_rigidbody.position, Vector2.down, _filter, buffer, 0.55f);
+            int grounds = Physics2D.Raycast(_rigidbody.position, Vector2.down, _filter, buffer, 0.7f);
 
             bool before = grounded;
             grounded = grounds > 0;
