@@ -31,12 +31,9 @@ public class Throw : PlayerObserver
     {
         if (_playerInArea)
         {
-            if (Input.GetKeyDown(Key))
-            {
-                _arrow.SetActive(true);
-            }
             if (Input.GetKey(Key))
             {
+                _arrow.SetActive(true);
                 Vector2 mousePosition = _camera.ScreenToWorldPoint(Input.mousePosition);
                 _arrowRotater.Rotate(mousePosition);
                 _arrowTiler.Tile(mousePosition, Max);

@@ -33,6 +33,11 @@ public class Teleportation : MonoBehaviour
         StartCoroutine(Unblocke());
     }
 
+    public void Kill()
+    {
+        _blocked = true;
+    }
+
     private IEnumerator Unblocke()
     {
         yield return new WaitForSeconds(0.5f);
